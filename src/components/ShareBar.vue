@@ -49,7 +49,7 @@ async function webShare() {
 </script>
 
 <template>
-  <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Compartir">
+  <div class="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center" role="group" aria-label="Compartir">
     <Button variant="outline" size="sm" @click="copyLink">
       <Link2 class="size-3.5" />
       {{ copied === 'link' ? '¡Copiado!' : 'Copiar enlace' }}
@@ -62,7 +62,7 @@ async function webShare() {
       <svg class="size-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 1.2h3.7l-8.1 9.3L24 22.8h-7.5l-5.9-7.7-6.7 7.7H.2l8.7-9.9L0 1.2h7.7l5.3 7 6-7Zm-1.3 19.4h2L6.6 3.3H4.4l13.2 17.3Z" /></svg>
       Publicar en X
     </Button>
-    <Button v-if="canShare" variant="outline" size="sm" class="w-full sm:w-auto" @click="webShare">
+    <Button v-if="canShare" variant="outline" size="sm" class="col-span-2 sm:col-span-1 sm:w-auto" @click="webShare">
       <Share2 class="size-3.5" />
       Compartir
     </Button>

@@ -149,13 +149,13 @@ function onLogoUpload(event: Event) {
   reader.readAsDataURL(file)
 }
 
-const sectionClass = 'space-y-4 rounded-2xl border border-border p-5'
+const sectionClass = 'space-y-4 rounded-2xl border border-border p-4 sm:p-5'
 const sectionTitleClass = 'text-sm font-semibold'
 </script>
 
 <template>
   <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,400px)]">
-    <div class="space-y-5">
+    <div class="order-2 space-y-5 lg:order-none">
       <Tabs v-model="state.tab">
         <TabsList aria-label="Tipo de código QR">
           <TabsTrigger v-for="tab in tabs" :key="tab.id" :value="tab.id">
@@ -187,7 +187,7 @@ const sectionTitleClass = 'text-sm font-semibold'
               Las contraseñas no salen de tu navegador y nunca se incluyen en los enlaces para compartir.
             </p>
           </div>
-          <div class="flex items-end gap-4">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-end">
             <div class="flex-1">
               <Label for="qr-security">Seguridad</Label>
               <Select v-model="state.security">
@@ -238,7 +238,7 @@ const sectionTitleClass = 'text-sm font-semibold'
         </TabsContent>
 
         <TabsContent value="vcard" class="space-y-4">
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <Label for="qr-first">Nombre</Label>
               <Input id="qr-first" v-model="state.firstName" autocomplete="off" />
@@ -275,7 +275,7 @@ const sectionTitleClass = 'text-sm font-semibold'
         <h2 :class="sectionTitleClass">
           Patrón y ojos
         </h2>
-        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div>
             <Label for="qr-dots">Patrón de módulo</Label>
             <Select v-model="state.dots">
@@ -361,7 +361,7 @@ const sectionTitleClass = 'text-sm font-semibold'
         <p class="text-xs text-muted-foreground">
           Las combinaciones de «Igual al patrón» están verificadas con un decodificador estricto. Otras mezclas de marco/pupila suelen escanearse en la mayoría de móviles - pero prueba siempre un código estilizado antes de imprimirlo.
         </p>
-        <div v-if="customEyeColors" class="grid grid-cols-2 gap-4">
+        <div v-if="customEyeColors" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <Label>Color del marco</Label>
             <ColorPicker v-model="state.eyeColor" label="Color del marco de ojo" />
@@ -377,7 +377,7 @@ const sectionTitleClass = 'text-sm font-semibold'
         <h2 :class="sectionTitleClass">
           Colores
         </h2>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <Label>{{ state.grad ? 'Inicio del degradado' : 'Primer plano' }}</Label>
             <ColorPicker v-model="state.fg" :label="state.grad ? 'Color de inicio del degradado' : 'Color de primer plano'" />
@@ -402,7 +402,7 @@ const sectionTitleClass = 'text-sm font-semibold'
           </div>
         </div>
         <template v-if="state.grad">
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <Label for="qr-gradtype">Tipo de degradado</Label>
               <Select v-model="state.gradType">
@@ -437,7 +437,7 @@ const sectionTitleClass = 'text-sm font-semibold'
         <h2 :class="sectionTitleClass">
           Salida
         </h2>
-        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div>
             <Label for="qr-ec">Corrección de errores (mínimo)</Label>
             <Select v-model="state.ec" :disabled="!!logoHref">
@@ -511,7 +511,7 @@ const sectionTitleClass = 'text-sm font-semibold'
       </section>
     </div>
 
-    <div class="lg:sticky lg:top-8 lg:self-start">
+    <div class="order-1 lg:order-none lg:sticky lg:top-8 lg:self-start">
       <div class="rounded-2xl border border-border p-5 bg-muted">
         <div class="mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-xl border border-border/50" :class="state.transparent ? 'bg-[repeating-conic-gradient(#80808022_0_25%,transparent_0_50%)] bg-[length:16px_16px]' : ''">
           <div v-if="svg" class="[&>svg]:h-full [&>svg]:w-full" role="img" aria-label="Vista previa del código QR generado" v-html="svg" />
