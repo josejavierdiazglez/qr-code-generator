@@ -20,7 +20,7 @@ function onReset() {
             Generador de códigos QR Gratis
           </h1>
           <p class="text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Sin registro, sin marca de agua, sin caducidad.
+            
           </p>
         </div>
         <Button

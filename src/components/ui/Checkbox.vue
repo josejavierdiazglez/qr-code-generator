@@ -18,7 +18,7 @@ function onCheckedChange(value: boolean | 'indeterminate') {
     :checked="checked"
     :disabled="props.disabled"
     :class="cn(
-      'peer size-5 shrink-0 rounded-md border border-input bg-transparent transition-colors dark:bg-input/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary dark:data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
+      'peer size-5 shrink-0 rounded-md border border-border bg-input transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary dark:data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
       props.class,
     )"
     @update:checked="onCheckedChange"
